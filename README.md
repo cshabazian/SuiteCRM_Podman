@@ -3,13 +3,13 @@
 To use in the most simple form:  
 - Make sure you have the required dependencies:
 - `sudo dnf -y install git unzip podman`
-- Clone this repository
-- Change into the directory
-- CHANGE THE PASSWORDS in the pod_variables file
+- Clone this repository with `git clone https://github.com/cshabazian/SuiteCRM_Podman.git`
+- Change into the directory `cd SuiteCRM_Podman`
+- **CHANGE THE PASSWORDS in the pod_variables file**
 - Build the application container by running `./build_web4crm.sh`
 - Launch the containers by running `./create_pod.sh`
 - Ensure selinux will allow the port you are running on to serve http requests by running `sudo semanage port -a -t http_port_t -p tcp <port>`
-- Use the values displayed to continue the setup via browser at http://<IP_OF_SERVER>:<port>  
+- Use the values displayed to continue the setup via browser at `http://<IP_OF_SERVER>:<port>`  
 
 I highly recommend running haproxy and redirecting to ssl, ESPECIALLY if this is going to be accessible outside your network
 
