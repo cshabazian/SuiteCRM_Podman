@@ -1,0 +1,14 @@
+# DO NOT USE THESE VALUES!
+DB_ROOT_PASS=<CHANGE_ME>
+DB_USER_PASS=<CHANGE_ME>
+# Changing anything from here down is optional
+POD=suite_crm_pod
+EXT_PORT=8080
+CRM_DB_NAME=suite_crm_database_container
+CRM_WEB_NAME=suite_crm_application_container
+CRM_DB=suite_crm_database
+DB_USER=suite_crm_database_user
+CONTAINER_ROOT=${HOME}/suitecrm
+DB_DIRECTORY=mariadb
+WEB_DIRECTORY=data
+SOURCE_FILE=${HOME}/suitecrm/suitecrm-8-10-2.zip

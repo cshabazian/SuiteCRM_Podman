@@ -1,0 +1,17 @@
+FROM docker.io/library/php:8.3-apache
+# This script will install the necessary php modules and remove anything extra 
+ADD --chmod=0755 https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+RUN install-php-extensions curl intl json gd mbstring mysqli pdo_mysql openssl soap xml zip imap ldap # imap and ldap are optional
+# The custom.ini goes into the the conf.d directory for php and supplements the other .ini files with the necessary settings
+COPY custom.ini /usr/local/etc/php/conf.d/custom.ini
+# a2enmod rewrite enables rewrites in the apache 2 installation
+RUN a2enmod rewrite
+# Add the necessary changes to the apache2.conf file for SuiteCRM:
+# AllowOverride All
+# Order Allow,Deny
+# Allow from All
+RUN sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
+RUN sed -i '/^#/!s/Require all.*/Order Allow,Deny\n        Allow from All/g' /etc/apache2/apache2.conf
+# For SuiteCRM 8: # Comment out if running SuiteCRM7
+RUN sed -i 's/html/html\/public/' /etc/apache2/sites-available/000-default.conf
+# That's it!
