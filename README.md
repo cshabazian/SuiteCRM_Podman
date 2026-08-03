@@ -1,8 +1,7 @@
 #### These files will allow you to run SuiteCRM using podman.  They can be adopted for docker just fine, but as they currently exist, they are for podman
 
 To use in the most simple form:  
-- Make sure you have the required dependencies:
-- `sudo dnf -y install git unzip podman`
+- Make sure you have the required dependencies: `sudo dnf -y install git unzip podman`
 - Clone this repository with `git clone https://github.com/cshabazian/SuiteCRM_Podman.git`
 - Change into the directory `cd SuiteCRM_Podman`
 - **CHANGE THE PASSWORDS in the pod_variables file**
