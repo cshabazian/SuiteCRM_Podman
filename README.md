@@ -1,4 +1,4 @@
-#### These files will allow you to run SuiteCRM using podman.  They can be adopted for docker just fine, but as they currently exist, they are for podman
+#### These files will allow you to run SuiteCRM using podman.  They can be adopted for docker just fine, but as they currently exist, they are for podman with selinux running in enforcing mode
 
 To use in the most simple form:  
 - Make sure you have the required dependencies: `sudo dnf -y install git unzip podman`
