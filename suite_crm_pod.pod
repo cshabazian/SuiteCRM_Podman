@@ -1,0 +1,2 @@
+[Pod]
+PublishPort=8080:80		# Make sure this is the correct port

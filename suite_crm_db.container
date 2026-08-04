@@ -1,0 +1,21 @@
+[Unit]
+Description=MariaDB Database for SuiteCRM
+After=local-fs.target
+
+[Container]
+AutoUpdate=registry
+Image=docker.io/library/mariadb:11.8
+Exec='--sql_mode="STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION"'
+Volume=<PATH_TO_DB_DATA>:/var/lib/mysql:Z		# Ensure this is the correct path
+Pod=suite_crm_pod.pod
+Environment=MYSQL_ROOT_PASSWORD=<CHANGE_ME>		# Use the root password from the pod_variables file
+Environment=MYSQL_DATABASE=suite_crm_db			# If you changed this from the default value, use the value from the pod_variables file
+Environment=MYSQL_USER=suite_crm_usr			# If you changed this from the default value, use the value from the pod_variables file
+Environment=MYSQL_PASSWORD=<CHANGE_ME>			# Use the user password from the pod_variables file
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
+

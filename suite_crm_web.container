@@ -1,0 +1,16 @@
+[Unit]
+Description=PHP Container with Apache for SuiteCRM
+After=local-fs.target
+
+[Container]
+AutoUpdate=registry
+Image=localhost/web4crm:latest
+Volume=<PATH_TO_APP_DATA>:/var/www/html:Z		# Change This to the correct path
+Pod=suite_crm_pod.pod
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
+
