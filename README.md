@@ -13,3 +13,7 @@ To use in the most simple form:
 I highly recommend running haproxy and redirecting to ssl, ESPECIALLY if this is going to be accessible outside your network
 
 **NOTE:** *I was having problems using the import function in Chrome and had to import using Safari.  Everything else seems to be working fine, and it may just be something about my setup or a cache because I kept re-installing while building this out.*
+
+*If you wish to run the containers as a quadlet systemd service, take a look at create_quadlet.sh   
+Make sure to edit the values in the files as needed (lines that need attention have a comment), then just run the script*
+
